@@ -3,6 +3,7 @@ import {
   Button,
   Center,
   Container,
+  Flex,
   FormControl,
   FormLabel,
   Grid,
@@ -30,8 +31,13 @@ export default function Contact() {
           </Text>
         </Box>
         <Box w="full">
-          <Grid templateColumns="repeat(3, 1fr)" w="full" gap={10}>
-            <GridItem colSpan={2}>
+          <Flex w="full" flexWrap="wrap-reverse" gap={10}>
+            <Box
+              w={{
+                base: "100%",
+                md: "66%",
+              }}
+            >
               <VStack spacing="8">
                 <HStack w="full" spacing="10">
                   <FormControl>
@@ -67,8 +73,8 @@ export default function Contact() {
                   Send message
                 </Button>
               </VStack>
-            </GridItem>
-            <GridItem>
+            </Box>
+            <Box flex={1}>
               <VStack spacing="16">
                 <VStack>
                   <Center bg="gray.200" p="4" rounded="md">
@@ -119,8 +125,8 @@ export default function Contact() {
                   </Link>
                 </VStack>
               </VStack>
-            </GridItem>
-          </Grid>
+            </Box>
+          </Flex>
         </Box>
       </VStack>
     </Container>

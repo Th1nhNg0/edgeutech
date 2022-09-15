@@ -14,7 +14,7 @@ export default function Header() {
         <Flex justifyContent="space-between" alignItems="center">
           <Image h="16" src="EUTLabs_logo.png" />
           <HStack spacing="5">
-            <Link>Explore</Link>
+            <Link href="#explorer">Explore</Link>
             <Link href="#roadmap">Roadmap</Link>
             <Link href="#contact">Contact</Link>
           </HStack>
