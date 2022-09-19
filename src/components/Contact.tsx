@@ -69,7 +69,7 @@ export default function Contact() {
                   and disclose your personal information including to third
                   parties.
                 </Text>
-                <Button colorScheme="green" alignSelf="start">
+                <Button bg="#7bbe41" alignSelf="start">
                   Send message
                 </Button>
               </VStack>

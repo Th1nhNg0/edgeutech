@@ -1,54 +1,142 @@
-import { Box, Container, Heading } from "@chakra-ui/react";
-import React, { useState } from "react";
-import ReactFlow, { Node, Edge } from "react-flow-renderer";
-
-const initialNodes: Node[] = [
-  {
-    id: "1",
-    type: "input",
-    data: { label: "Current product" },
-    position: { x: 250, y: 25 },
-  },
-
-  {
-    id: "2",
-    type: "output",
-    data: { label: "Educational Product" },
-    position: { x: 100, y: 125 },
-  },
-  {
-    id: "3",
-    type: "output",
-    data: { label: "Retail Product" },
-    position: { x: 400, y: 125 },
-  },
-];
-
-const initialEdges: Edge[] = [
-  { id: "e1-2", source: "1", target: "2", type: "smoothstep" },
-  { id: "e2-3", source: "1", target: "3", type: "smoothstep" },
-];
+import {
+  Box,
+  Container,
+  Heading,
+  HStack,
+  List,
+  ListItem,
+  Show,
+  UnorderedList,
+} from "@chakra-ui/react";
 
 export default function Roadmap() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
-  const [edges, setEdges] = useState<Edge[]>(initialEdges);
   return (
     <Box id="roadmap" w="full" pt="20">
       <Heading textAlign="center">Roadmap</Heading>
-      <Container maxW="container.xl" w="full" h={500}>
-        <ReactFlow
-          proOptions={{ hideAttribution: true, account: "paid-custom" }}
-          panOnDrag={false}
-          nodesConnectable={false}
-          elementsSelectable={false}
-          zoomOnScroll={false}
-          zoomOnPinch={false}
-          zoomOnDoubleClick={false}
-          preventScrolling={false}
-          nodes={nodes}
-          edges={edges}
-          fitView
-        />
+      <Container
+        py={{
+          base: 10,
+          md: 20,
+        }}
+        maxW="container.xl"
+        w="full"
+      >
+        <Box
+          position="relative"
+          mx="auto"
+          maxW="md"
+          w="full"
+          bg="#7bbe41"
+          p="5"
+          rounded="md"
+          mb={{
+            base: 5,
+            md: "16",
+          }}
+        >
+          <Heading size="lg" textAlign="center">
+            Current Product
+          </Heading>
+          <UnorderedList mt="3">
+            <ListItem>Intuitive 3D learning experience</ListItem>
+            <ListItem>Multi-directional coding facility</ListItem>
+            <ListItem>
+              Optimised 3D graphics engine to support use on all devices and
+              low-band-width network connections
+            </ListItem>
+          </UnorderedList>
+          <Show above="md">
+            <Box position="absolute" top="100%" left="50%" translateX="-50%">
+              <Box h="16" w="1" bg="black"></Box>
+            </Box>
+          </Show>
+        </Box>
+        <HStack
+          flexDirection={{
+            base: "column",
+            md: "row",
+          }}
+          position="relative"
+          alignItems={{
+            base: "center",
+            md: "start",
+          }}
+          justifyContent="center"
+          pt={{
+            base: 0,
+            md: "16",
+          }}
+          gap={{
+            base: "5",
+            md: "20",
+          }}
+        >
+          <Box
+            maxW="md"
+            w="full"
+            position="relative"
+            bg="#7bbe41"
+            p="5"
+            rounded="md"
+          >
+            <Show above="md">
+              <Box
+                position="absolute"
+                bottom="100%"
+                left="50%"
+                translateX="-50%"
+              >
+                <Box position="absolute" top="0" h="1" w="sm" bg="black"></Box>
+                <Box h="16" w="1" bg="black"></Box>
+              </Box>
+            </Show>
+            <Heading size="lg" textAlign="center">
+              Educational Product
+            </Heading>
+            <UnorderedList mt="3">
+              <ListItem>Complete Teachers' Resources</ListItem>
+              <ListItem>Student/Class management Software</ListItem>
+              <ListItem>Curriculumn-aligned Courses</ListItem>
+            </UnorderedList>
+          </Box>
+          <Box
+            maxW="md"
+            w="full"
+            position="relative"
+            bg="#7bbe41"
+            p="5"
+            rounded="md"
+          >
+            <Show above="md">
+              <Box
+                position="absolute"
+                bottom="100%"
+                left="50%"
+                translateX="-50%"
+              >
+                <Box
+                  position="absolute"
+                  top="0"
+                  right="0"
+                  h="1"
+                  w="sm"
+                  bg="black"
+                ></Box>
+                <Box h="16" w="1" bg="black"></Box>
+              </Box>
+            </Show>
+            <Heading size="lg" textAlign="center">
+              Retail Product
+            </Heading>
+            <UnorderedList mt="3">
+              <ListItem>Curiosity-driven, educational activites</ListItem>
+              <ListItem>Gamified UX</ListItem>
+              <ListItem>
+                Ability to purchase and program real-life hardware
+              </ListItem>
+            </UnorderedList>
+          </Box>
+        </HStack>
       </Container>
     </Box>
   );
