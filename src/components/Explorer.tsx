@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Box,
   Container,
-  Flex,
   Grid,
   GridItem,
   Heading,
@@ -11,12 +10,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense } from "react";
+import { BsMouse } from "react-icons/bs";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { OrbitControls } from "@react-three/drei";
-import { useFrame, ThreeElements } from "@react-three/fiber";
-
 export default function ExplorerSection() {
   return (
     <Container id="explorer" maxW="container.xl" w="full">
@@ -49,12 +47,16 @@ function Journey() {
         md: "20",
       }}
     >
-      <Box flex="1">
-        <Image src="http://unsplash.it/900?gravity=center" />
+      <Box flex="1" w="full">
+        <AspectRatio w="full" ratio={1}>
+          <video autoPlay muted loop>
+            <source src="/Hardware Orbit.mp4" type="video/mp4" />
+          </video>
+        </AspectRatio>
       </Box>
       <Box flex="1">
         <Heading>The Journey</Heading>
-        <Text mt="5">
+        <Text mt="8" fontSize="2xl">
           Students navigate the inner workings of real world hardware to gain a
           intuitively understand how they function.
         </Text>
@@ -76,11 +78,11 @@ function Environments() {
     >
       <Box flex="1">
         <Heading>Environments</Heading>
-        <Text mt="5">
+        <Text mt="5" fontSize="lg">
           Starting with the big picture, students are guided through courses
           based on houses, roads, vehicles, - even ways to generate electricity!
         </Text>
-        <Text>
+        <Text fontSize="lg">
           Each Environment serves as a course which contains modules... For
           example, "Lighting", "Entertainment Systems", and "Household
           appliances" are all modules found in the household
@@ -95,6 +97,7 @@ function Environments() {
 
 function Explorer() {
   const gltf = useLoader(GLTFLoader, "/model/led.glb");
+
   return (
     <HStack
       flexDirection={{
@@ -108,9 +111,10 @@ function Explorer() {
       w="full"
     >
       <Box flex="1" w="full">
-        <AspectRatio ratio={1} w="full">
+        <AspectRatio cursor="pointer" ratio={1} w="full">
           <Box h="full" w="full" position="relative">
-            <Canvas>
+            <Canvas camera={{ manual: true }}>
+              <PerspectiveCamera makeDefault manual position={[4, 3, 4]} />
               <ambientLight />
               <pointLight position={[10, 10, 10]} />
               <Suspense fallback={null}>
@@ -124,10 +128,21 @@ function Explorer() {
             </Canvas>
           </Box>
         </AspectRatio>
+        <Text
+          mt="3"
+          display="flex"
+          fontSize="sm"
+          color="gray.500"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <BsMouse style={{ height: 20, width: 20 }} />
+          &nbsp; Click and drag to interact with the 3D model
+        </Text>
       </Box>
       <Box flex="1">
         <Heading>Explore</Heading>
-        <Text mt="5">
+        <Text mt="5" fontSize="lg">
           This is where students can see inside each hardware to gain a
           first-hand understanding of how they work.
         </Text>
@@ -160,7 +175,7 @@ function Quests() {
     >
       <Box flex="1">
         <Heading>Quests </Heading>
-        <Text mt="5">
+        <Text fontSize="lg" mt="5">
           Individual hardware are combined to solve real-world problems.
           Students might build a desk lamp to help see when it's dark, a fan to
           circulate the air on a hot day, or any of the other available quests
@@ -171,8 +186,38 @@ function Quests() {
         <Grid templateColumns="repeat(3, 1fr)" gap="5">
           {images.map((image) => (
             <GridItem cursor="pointer" key={image}>
-              <Box border="1px" rounded="xl">
+              <Box
+                border="1px"
+                rounded="xl"
+                position="relative"
+                overflow="hidden"
+                role="group"
+                transition="all 0.4s ease-in-out"
+                _hover={{
+                  bg: "#7bbe41",
+                }}
+              >
                 <Image src={image} />
+                <Box
+                  position="absolute"
+                  w="full"
+                  textAlign="center"
+                  py="1"
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  bottom="0"
+                  left="0"
+                  bg="white"
+                  opacity="0"
+                  transform="translateY(100%)"
+                  transition="all 0.4s ease-in-out"
+                  _groupHover={{
+                    opacity: 1,
+                    transform: "translateY(0)",
+                  }}
+                >
+                  {image.split("/").slice(-1)[0].split(".")[0]}
+                </Box>
               </Box>
             </GridItem>
           ))}

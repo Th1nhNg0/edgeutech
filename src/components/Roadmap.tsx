@@ -3,10 +3,14 @@ import {
   Container,
   Heading,
   HStack,
+  Image,
   List,
+  ListIcon,
   ListItem,
   Show,
+  Text,
   UnorderedList,
+  VStack,
 } from "@chakra-ui/react";
 
 export default function Roadmap() {
@@ -32,14 +36,23 @@ export default function Roadmap() {
           <Heading size="lg" textAlign="center">
             Current Product
           </Heading>
-          <UnorderedList mt="3">
-            <ListItem>Intuitive 3D learning experience</ListItem>
-            <ListItem>Multi-directional coding facility</ListItem>
-            <ListItem>
-              Optimised 3D graphics engine to support use on all devices and
-              low-band-width network connections
-            </ListItem>
-          </UnorderedList>
+          <VStack mt="3" alignItems="start">
+            <HStack alignItems="start" fontSize="lg" gap="2">
+              <Image w="6" h="6" src="/images/image.png" />
+              <Text>Intuitive 3D learning experience</Text>
+            </HStack>
+            <HStack alignItems="start" fontSize="lg" gap="2">
+              <Image w="6" h="6" src="/images/image (1).png" />
+              <Text> Multi-directional coding facility</Text>
+            </HStack>
+            <HStack alignItems="start" fontSize="lg" gap="2">
+              <Image w="6" h="6" src="/images/image (2).png" />
+              <Text>
+                Optimised 3D graphics engine to support use on all devices and
+                low-band-width network connections
+              </Text>
+            </HStack>
+          </VStack>
           <Show above="md">
             <Box position="absolute" top="100%" left="50%" translateX="-50%">
               <Box h="16" w="1" bg="black"></Box>
@@ -88,11 +101,20 @@ export default function Roadmap() {
             <Heading size="lg" textAlign="center">
               Educational Product
             </Heading>
-            <UnorderedList mt="3">
-              <ListItem>Complete Teachers' Resources</ListItem>
-              <ListItem>Student/Class management Software</ListItem>
-              <ListItem>Curriculumn-aligned Courses</ListItem>
-            </UnorderedList>
+            <VStack mt="3" alignItems="start">
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (3).png" />
+                <Text>Complete Teachers' Resources</Text>
+              </HStack>
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (4).png" />
+                <Text> Student/Class management Software</Text>
+              </HStack>
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (5).png" />
+                <Text>Curriculum-aligned Courses</Text>
+              </HStack>
+            </VStack>
           </Box>
           <Box
             maxW="md"
@@ -123,13 +145,21 @@ export default function Roadmap() {
             <Heading size="lg" textAlign="center">
               Retail Product
             </Heading>
-            <UnorderedList mt="3">
-              <ListItem>Curiosity-driven, educational activites</ListItem>
-              <ListItem>Gamified UX</ListItem>
-              <ListItem>
-                Ability to purchase and program real-life hardware
-              </ListItem>
-            </UnorderedList>
+
+            <VStack mt="3" alignItems="start">
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (6).png" />
+                <Text>Curiosity-driven, educational activites</Text>
+              </HStack>
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (7).png" />
+                <Text> Gamified UX</Text>
+              </HStack>
+              <HStack alignItems="start" fontSize="lg" gap="2">
+                <Image w="6" h="6" src="/images/image (8).png" />
+                <Text>Ability to purchase and program real-life hardware</Text>
+              </HStack>
+            </VStack>
           </Box>
         </HStack>
       </Container>
