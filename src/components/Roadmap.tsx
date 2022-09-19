@@ -11,22 +11,17 @@ import {
 
 export default function Roadmap() {
   return (
-    <Box id="roadmap" w="full" pt="20">
-      <Heading textAlign="center">Roadmap</Heading>
-      <Container
-        py={{
-          base: 10,
-          md: 20,
-        }}
-        maxW="container.xl"
-        w="full"
-      >
+    <Box bg="#7bbe41" id="roadmap" w="full" py="20">
+      <Heading mb="10" textAlign="center" size="3xl">
+        Roadmap
+      </Heading>
+      <Container maxW="container.xl" w="full">
         <Box
           position="relative"
           mx="auto"
           maxW="md"
           w="full"
-          bg="#7bbe41"
+          bg="white"
           p="5"
           rounded="md"
           mb={{
@@ -75,7 +70,7 @@ export default function Roadmap() {
             maxW="md"
             w="full"
             position="relative"
-            bg="#7bbe41"
+            bg="white"
             p="5"
             rounded="md"
           >
@@ -103,7 +98,7 @@ export default function Roadmap() {
             maxW="md"
             w="full"
             position="relative"
-            bg="#7bbe41"
+            bg="white"
             p="5"
             rounded="md"
           >
