@@ -1,4 +1,12 @@
-import { Box, Container, Flex, HStack, Image, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Container,
+  Flex,
+  HStack,
+  Image,
+  Link,
+} from "@chakra-ui/react";
 
 export default function Header() {
   return (
@@ -9,14 +17,21 @@ export default function Header() {
       w="full"
       zIndex="sticky"
       boxShadow="xl"
+      h="70"
     >
-      <Container py="3" maxW="container.xl">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Image h="16" src="EUTLabs_logo.png" />
+      <Container maxW="container.xl" h="full">
+        <Flex justifyContent="space-between" h="full" alignItems="center">
+          <Image h="12" src="final-logo-2.png" />
           <HStack spacing="5">
-            <Link href="#explorer">The Journey</Link>
-            <Link href="#roadmap">Roadmap</Link>
-            <Link href="#contact">Contact</Link>
+            <Link href="#explorer" fontWeight="bold">
+              The Journey
+            </Link>
+            <Link href="#roadmap" fontWeight="bold">
+              Roadmap
+            </Link>
+            <Link href="#contact" fontWeight="bold">
+              Contact
+            </Link>
           </HStack>
         </Flex>
       </Container>
