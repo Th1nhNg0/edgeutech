@@ -51,7 +51,9 @@ export default function Header() {
         >
           <Container maxW="container.xl" h="full">
             <Flex justifyContent="space-between" h="full" alignItems="center">
-              <Image h="12" src="final-logo-2.png" />
+              <Link href="/" fontWeight="bold">
+                <Image h="12" src="final-logo-2.png" />
+              </Link>
               <HStack spacing="5">
                 <Link href="#explorer" fontWeight="bold">
                   The Journey

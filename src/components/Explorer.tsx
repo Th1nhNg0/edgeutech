@@ -12,9 +12,11 @@ import {
 } from "@chakra-ui/react";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { BsMouse } from "react-icons/bs";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { motion } from "framer-motion";
+
 export default function ExplorerSection() {
   return (
     <Container id="explorer" maxW="container.xl" w="full">
@@ -203,7 +205,11 @@ function Quests() {
                   w="full"
                   textAlign="center"
                   py="1"
-                  fontSize="lg"
+                  px="2"
+                  fontSize={{
+                    base: "sm",
+                    lg: "lg",
+                  }}
                   fontWeight="semibold"
                   bottom="0"
                   left="0"
@@ -228,6 +234,8 @@ function Quests() {
 }
 
 function CodeLabs() {
+  const ref = useRef<HTMLVideoElement>(null);
+
   return (
     <HStack
       flexDirection={{
@@ -239,8 +247,14 @@ function CodeLabs() {
         md: "20",
       }}
     >
-      <Box flex="1">
-        <video autoPlay muted controls loop>
+      <Box
+        as={motion.div}
+        flex="1"
+        onViewportEnter={() => {
+          ref.current?.play();
+        }}
+      >
+        <video ref={ref} muted controls loop>
           <source src="/codeLabs.mp4" type="video/mp4" />
         </video>
       </Box>

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <Center w="full" textColor="white" bg="#545454" py="5">
+    <Center fontSize="sm" w="full" textColor="white" bg="#545454" py="5">
       Copyright © 2022 Edgeutech | All rights reserved
     </Center>
   );

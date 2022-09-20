@@ -1,5 +1,6 @@
 # edgeutech
 
+You can use npm instead of pnpm.
 
 Dev:
 
@@ -7,7 +8,6 @@ Dev:
 pnpm install
 pnpm dev
 ```
-
 
 Build production, all file will be in dist folder
 
