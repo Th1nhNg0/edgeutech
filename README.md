@@ -1,5 +1,7 @@
 # edgeutech
 
+Use react.js, vite, react-three/fiber and chakra-ui
+
 You can use npm instead of pnpm.
 
 Dev:
