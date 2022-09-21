@@ -1,4 +1,4 @@
-# edgeutech
+# EdgeUTechLabs Website
 
 Use react.js, vite, react-three/fiber and chakra-ui
 
